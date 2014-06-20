@@ -131,9 +131,10 @@
 - (void)executeScript:(NSString *)videoPath
 {
     NSString *scriptPath = [[NSBundle mainBundle] pathForResource:@"script" ofType:@""];
+    NSString *lgtmPath = [[NSBundle mainBundle] pathForResource:@"lgtm" ofType:@"png"];
     NSTask *task  = [[NSTask alloc] init];
     NSPipe *pipe  = [[NSPipe alloc] init];
-    NSString *command = [NSString stringWithFormat:@"/usr/bin/ruby %@ %@", scriptPath, videoPath];
+    NSString *command = [NSString stringWithFormat:@"/usr/bin/ruby %@ %@ %@", scriptPath, videoPath, lgtmPath];
     
     [task setLaunchPath: @"/bin/sh"];
     [task setArguments: [NSArray arrayWithObjects: @"-c", command, nil]];

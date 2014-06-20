@@ -1,10 +1,15 @@
 #!/usr/bin/env ruby
 
 require "twitter"
+require "rmagick"
 
-GRAPHICS_MAGICK_PATH = "/usr/local/bin/gm"
+IMAGEMAGICK_PATH = "/usr/local/bin/convert"
 FFMPEG_PATH = "/usr/local/bin/ffmpeg"
 
+# TODO: Set this to false if you don't want to add LGTM
+ADD_LGTM = true
+
+# TODO: Change this to your access token
 client = Twitter::REST::Client.new do |config|
   config.consumer_key        = "YOUR_CONSUMER_KEY"
   config.consumer_secret     = "YOUR_CONSUMER_SECRET"
@@ -12,18 +17,36 @@ client = Twitter::REST::Client.new do |config|
   config.access_token_secret = "YOUR_ACCESS_SECRET"
 end
 
-# Copy original mp4 to ~/.twizo/#{Time.now.to_i}
-working_dir = File.expand_path("~/.twizo/#{Time.now.to_i}/")
-org_movie_path = ARGV[0].gsub(/^file:\/\//, "")
-new_movie_path = File.join(working_dir, "movie.mp4")
-system("mkdir -p #{working_dir}")
-system("cp #{org_movie_path} #{new_movie_path}")
+def lgtmify(path)
+  system("cp #{path} #{path.gsub(/\.png$/, '.png.org')}")
 
-# Convert ~/.twizo/#{Time.now.to_i}/movie.mp4 to ~/.twizo/#{Time.now.to_i}/movie.gif
-mp4_path = new_movie_path
-gif_path = File.join(working_dir, "movie.gif")
+  image = Magick::Image.read(path).first
+  width, height = image.columns, image.rows
+
+  lgtm = Magick::Image.read(File.expand_path(ARGV[1].gsub(/^file:\/\//, ""))).first
+  lgtm.resize_to_fit!(width, height)
+
+  image.composite!(lgtm, Magick::CenterGravity, Magick::OverCompositeOp)
+  image.write(path)
+end
+
+# Copy original mp4 to ~/.twizo/xxx/movie.mp4
+working_dir = File.expand_path("~/.twizo/#{Time.now.to_i}/")
+mp4_path = File.join(working_dir, "movie.mp4")
+system("mkdir -p #{working_dir}; cp #{ARGV[0].gsub(/^file:\/\//, '')} #{mp4_path}")
+
+# Unfold ~/.twizo/xxx/movie.mp4 into ~/.twizo/xxx/0001.png, ...
 system("#{FFMPEG_PATH} -i #{mp4_path} -r 10 #{File.join(working_dir, '%04d.png')} >& /dev/null")
-system("#{GRAPHICS_MAGICK_PATH} convert -delay 10 #{File.join(working_dir, '*.png')} #{gif_path} >& /dev/null")
+if ADD_LGTM
+  Dir.glob(File.join(working_dir, "*")).each do |path|
+    next unless path =~ /\/[0-9]{4}\.png$/
+    lgtmify(path)
+  end
+end
+
+# Create ~/.twizo/xxx/movie.gif from ~/.twizo/xxx/0001.png, ...
+gif_path = File.join(working_dir, "movie.gif")
+system("#{IMAGEMAGICK_PATH} -delay 10 -loop 0 -layers optimize #{File.join(working_dir, '*.png')} #{gif_path} >& /dev/null")
 
 # Tweet empty string gif url
 client.update_with_media("", File.open(gif_path))
