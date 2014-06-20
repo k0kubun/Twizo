@@ -25,4 +25,5 @@ gif_path = File.join(working_dir, "movie.gif")
 system("#{FFMPEG_PATH} -i #{mp4_path} -r 10 #{File.join(working_dir, '%04d.png')} >& /dev/null")
 system("#{GRAPHICS_MAGICK_PATH} convert -delay 10 #{File.join(working_dir, '*.png')} #{gif_path} >& /dev/null")
 
-client.update_with_media("@null", File.open(gif_path))
+# Tweet empty string gif url
+client.update_with_media("", File.open(gif_path))
