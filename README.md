@@ -1,17 +1,18 @@
-## Gifzo.app
-Gifzo Mac Client
+## Twizo
 
-http://gifzo.net/
+Upload animated gif to twitter
 
-## Tips
-### upload to your server
-You can change the url Gifzo.app upload to.
+### Installation
 
+Click [here](https://github.com/k0kubun/Twizo/blob/master/Twizo.zip?raw=true) to Download Twizo.zip.
+
+```bash
+$ unzip ~/Downloads/Twizo.zip
+$ cp ~/Downloads/Twizo.app /Applications
+$ vi /Applications/Twizo.app/Contents/Resources/script # update access token
+$ sudo /usr/bin/gem install twitter
+$ brew install graphicsmagick
+$ brew install ffmpeg
 ```
-% defaults write net.gifzo.Gifzo url -string "http://your.gifzo.server.com/"
-```
 
-## License
-The MIT License (MIT)
-
-Copyright (c) 2013 Kazato Sugimoto \<uiureo@gmail.com\>
+Then execute Twizo.app
