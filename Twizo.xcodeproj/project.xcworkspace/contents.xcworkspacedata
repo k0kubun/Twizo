@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Gifzo.xcodeproj">
+      location = "self:Twizo.xcodeproj">
    </FileRef>
 </Workspace>

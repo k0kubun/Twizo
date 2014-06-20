@@ -30,12 +30,12 @@
 		55354AFD173A8D2200BEEBA6 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		555F1F1E173BB15100EBDE0C /* BorderlessWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BorderlessWindow.h; sourceTree = "<group>"; };
 		555F1F1F173BB15100EBDE0C /* BorderlessWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BorderlessWindow.m; sourceTree = "<group>"; };
-		55E40D1417321222008F31EC /* Gifzo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gifzo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		55E40D1417321222008F31EC /* Twizo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twizo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E40D1817321222008F31EC /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		55E40D1B17321222008F31EC /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		55E40D1C17321222008F31EC /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		55E40D1D17321222008F31EC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		55E40D2017321222008F31EC /* Gifzo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Gifzo-Info.plist"; sourceTree = "<group>"; };
+		55E40D2017321222008F31EC /* Twizo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Twizo-Info.plist"; sourceTree = "<group>"; };
 		55E40D2217321222008F31EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55E40D2417321222008F31EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		55E40D2617321222008F31EC /* Gifzo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gifzo-Prefix.pch"; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		55E40D1517321222008F31EC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				55E40D1417321222008F31EC /* Gifzo.app */,
+				55E40D1417321222008F31EC /* Twizo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,7 +120,7 @@
 		55E40D1F17321222008F31EC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				55E40D2017321222008F31EC /* Gifzo-Info.plist */,
+				55E40D2017321222008F31EC /* Twizo-Info.plist */,
 				55E40D2117321222008F31EC /* InfoPlist.strings */,
 				55E40D2417321222008F31EC /* main.m */,
 				55E40D2617321222008F31EC /* Gifzo-Prefix.pch */,
@@ -134,9 +134,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		55E40D1317321222008F31EC /* Gifzo */ = {
+		55E40D1317321222008F31EC /* Twizo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 55E40D3217321222008F31EC /* Build configuration list for PBXNativeTarget "Gifzo" */;
+			buildConfigurationList = 55E40D3217321222008F31EC /* Build configuration list for PBXNativeTarget "Twizo" */;
 			buildPhases = (
 				55E40D1017321222008F31EC /* Sources */,
 				55E40D1117321222008F31EC /* Frameworks */,
@@ -146,9 +146,9 @@
 			);
 			dependencies = (
 			);
-			name = Gifzo;
+			name = Twizo;
 			productName = Gifzo;
-			productReference = 55E40D1417321222008F31EC /* Gifzo.app */;
+			productReference = 55E40D1417321222008F31EC /* Twizo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -160,7 +160,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Kazato Sugimoto";
 			};
-			buildConfigurationList = 55E40D0E17321222008F31EC /* Build configuration list for PBXProject "Gifzo" */;
+			buildConfigurationList = 55E40D0E17321222008F31EC /* Build configuration list for PBXProject "Twizo" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -172,7 +172,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				55E40D1317321222008F31EC /* Gifzo */,
+				55E40D1317321222008F31EC /* Twizo */,
 			);
 		};
 /* End PBXProject section */
@@ -293,9 +293,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Gifzo/Gifzo-Prefix.pch";
-				INFOPLIST_FILE = "Gifzo/Gifzo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Gifzo/Twizo-Prefix.pch";
+				INFOPLIST_FILE = "Gifzo/Twizo-Info.plist";
+				PRODUCT_NAME = Twizo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -305,9 +305,9 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Gifzo/Gifzo-Prefix.pch";
-				INFOPLIST_FILE = "Gifzo/Gifzo-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "Gifzo/Twizo-Prefix.pch";
+				INFOPLIST_FILE = "Gifzo/Twizo-Info.plist";
+				PRODUCT_NAME = Twizo;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -315,7 +315,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		55E40D0E17321222008F31EC /* Build configuration list for PBXProject "Gifzo" */ = {
+		55E40D0E17321222008F31EC /* Build configuration list for PBXProject "Twizo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55E40D3017321222008F31EC /* Debug */,
@@ -324,7 +324,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		55E40D3217321222008F31EC /* Build configuration list for PBXNativeTarget "Gifzo" */ = {
+		55E40D3217321222008F31EC /* Build configuration list for PBXNativeTarget "Twizo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				55E40D3317321222008F31EC /* Debug */,
