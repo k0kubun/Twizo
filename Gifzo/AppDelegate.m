@@ -125,37 +125,27 @@
 // mp4ファイルをmultipart uploadする
 - (void)upload:(NSURL *)videoURL
 {
-    NSUserDefaults *defaults = [self setupUserDefaults];
+    [self executeScript: [videoURL absoluteString]];
+}
+
+- (void)executeScript:(NSString *)videoPath
+{
+    NSString *scriptPath = [[NSBundle mainBundle] pathForResource:@"script" ofType:@""];
+    NSTask *task  = [[NSTask alloc] init];
+    NSPipe *pipe  = [[NSPipe alloc] init];
+    NSString *command = [NSString stringWithFormat:@"/usr/bin/ruby %@ %@", scriptPath, videoPath];
     
-    NSURL *uploadURL = [NSURL URLWithString:[defaults stringForKey:@"url"]];
-
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:uploadURL];
-    [request setHTTPMethod:@"POST"];
-
-    NSMutableData *body = [NSMutableData data];
-
-    NSString *boundary = @"--------------------------298e6779c7a9";
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-    [request addValue:contentType forHTTPHeaderField:@"Content-Type"];
-
-    NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
-
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Disposition: form-data; name=\"data\"; filename=\"gifzo.mp4\"\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[@"Content-Type: application/octet-stream\r\n\r\n" dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:videoData];
-    [body appendData:[[NSString stringWithFormat:@"\r\n--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-
-    [request setHTTPBody:body];
-
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
-    NSString *returnString = [[NSString alloc] initWithData:returnData encoding:NSUTF8StringEncoding];
-
-    NSURL *gifURL = [NSURL URLWithString:returnString];
-
-    [self copyToPasteboard:returnString];
-
-    [[NSWorkspace sharedWorkspace] openURL:gifURL];
+    [task setLaunchPath: @"/bin/sh"];
+    [task setArguments: [NSArray arrayWithObjects: @"-c", command, nil]];
+    
+    [task setStandardOutput: pipe];
+    [task launch];
+    
+    NSFileHandle *handle = [pipe fileHandleForReading];
+    NSData *data = [handle  readDataToEndOfFile];
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    NSLog(@"%@", result);
 }
 
 - (void)copyToPasteboard:(NSString *)urlString

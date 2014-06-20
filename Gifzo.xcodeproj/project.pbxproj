@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10F427F21953F0260015FA72 /* script in Resources */ = {isa = PBXBuildFile; fileRef = 10F427F11953F0260015FA72 /* script */; };
 		5534651B1743FC9400DBF01C /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5534651A1743FC9400DBF01C /* icon.icns */; };
 		55354AF7173A82F500BEEBA6 /* Recorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 55354AF6173A82F500BEEBA6 /* Recorder.m */; };
 		55354AFE173A8D2200BEEBA6 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55354AFD173A8D2200BEEBA6 /* AVFoundation.framework */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10F427F11953F0260015FA72 /* script */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = script; sourceTree = "<group>"; };
 		5534651A1743FC9400DBF01C /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = icon.icns; path = ../icon.icns; sourceTree = "<group>"; };
 		55354AF5173A82F500BEEBA6 /* Recorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Recorder.h; sourceTree = "<group>"; };
 		55354AF6173A82F500BEEBA6 /* Recorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Recorder.m; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				55E40D2617321222008F31EC /* Gifzo-Prefix.pch */,
 				55E40D2717321222008F31EC /* Credits.rtf */,
 				5534651A1743FC9400DBF01C /* icon.icns */,
+				10F427F11953F0260015FA72 /* script */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 				55E40D2917321222008F31EC /* Credits.rtf in Resources */,
 				55E40D2F17321222008F31EC /* MainMenu.xib in Resources */,
 				5534651B1743FC9400DBF01C /* icon.icns in Resources */,
+				10F427F21953F0260015FA72 /* script in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

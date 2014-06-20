@@ -1,0 +1,20 @@
+#!/usr/bin/env ruby
+
+require "twitter"
+
+GRAPHICS_MAGICK_PATH = "/usr/local/bin/gm"
+FFMPEG_PATH = "/usr/local/bin/ffmpeg"
+
+client = Twitter::REST::Client.new do |config|
+  config.consumer_key        = "YOUR_CONSUMER_KEY"
+  config.consumer_secret     = "YOUR_CONSUMER_SECRET"
+  config.access_token        = "YOUR_ACCESS_TOKEN"
+  config.access_token_secret = "YOUR_ACCESS_SECRET"
+end
+
+movie_path = ARGV[0].gsub(/^file:\/\//, '')
+gif_path = movie_path.gsub(/mp4$/, 'gif')
+system("#{FFMPEG_PATH} -i #{movie_path} -r 10 #{movie_path}_%04d.png")
+system("#{GRAPHICS_MAGICK_PATH} convert -delay 10 #{movie_path}_*.png #{gif_path}")
+
+client.update_with_media('', File.open(gif_path))
