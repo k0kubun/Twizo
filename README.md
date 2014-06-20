@@ -4,11 +4,11 @@ Upload animated gif to twitter
 
 ## Installation
 
-Click [here](https://github.com/k0kubun/Twizo/blob/master/Twizo.zip?raw=true) to Download Twizo.zip.
+Click [here](https://github.com/k0kubun/Twizo/blob/master/Twizo.zip?raw=true) to Download `Twizo.zip`.
 
 ```bash
 $ unzip ~/Downloads/Twizo.zip
-$ cp ~/Downloads/Twizo.app /Applications
+$ cp -R Twizo.app /Applications
 $ vi /Applications/Twizo.app/Contents/Resources/script # update access token
 $ brew install imagemagick
 $ brew install ffmpeg
