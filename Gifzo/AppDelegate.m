@@ -138,14 +138,25 @@
     [task setLaunchPath: @"/bin/sh"];
     [task setArguments: [NSArray arrayWithObjects: @"-c", command, nil]];
     
-    [task setStandardOutput: pipe];
+    [task setStandardError:pipe];
     [task launch];
     
     NSFileHandle *handle = [pipe fileHandleForReading];
     NSData *data = [handle  readDataToEndOfFile];
     NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    NSLog(@"%@", result);
+    if ([result length] > 0) {
+        [self alertError:result];
+    }
+}
+
+- (void)alertError:(NSString*)message
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setAlertStyle:NSInformationalAlertStyle];
+    [alert setMessageText:@"Script Error"];
+    [alert setInformativeText:message];
+    [alert runModal];
 }
 
 - (void)copyToPasteboard:(NSString *)urlString

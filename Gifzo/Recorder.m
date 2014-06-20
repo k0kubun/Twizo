@@ -77,7 +77,7 @@
 {
     NSAlert *alert = [[NSAlert alloc] init];
     [alert setAlertStyle:NSInformationalAlertStyle];
-    [alert setMessageText:@"Capture Error®"];
+    [alert setMessageText:@"Capture Error"];
     [alert setInformativeText:message];
     [alert runModal];
 }
