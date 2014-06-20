@@ -67,10 +67,19 @@
 - (void)captureOutput:(AVCaptureFileOutput *)captureOutput willFinishRecordingToOutputFileAtURL:(NSURL *)fileURL fromConnections:(NSArray *)connections error:(NSError *)error
 {
     if (error) {
-        NSLog(@"%@", [error description]);
+        [self alertError:[error description]];
         
         [NSApp terminate:nil];
     }
+}
+
+- (void)alertError:(NSString*)message
+{
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert setAlertStyle:NSInformationalAlertStyle];
+    [alert setMessageText:@"Capture Error®"];
+    [alert setInformativeText:message];
+    [alert runModal];
 }
 
 - (void)finishRecording

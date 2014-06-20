@@ -38,7 +38,7 @@
 		55E40D2017321222008F31EC /* Twizo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Twizo-Info.plist"; sourceTree = "<group>"; };
 		55E40D2217321222008F31EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		55E40D2417321222008F31EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		55E40D2617321222008F31EC /* Gifzo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Gifzo-Prefix.pch"; sourceTree = "<group>"; };
+		55E40D2617321222008F31EC /* Twizo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Twizo-Prefix.pch"; sourceTree = "<group>"; };
 		55E40D2817321222008F31EC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		55E40D2A17321222008F31EC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		55E40D2B17321222008F31EC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 				55E40D2017321222008F31EC /* Twizo-Info.plist */,
 				55E40D2117321222008F31EC /* InfoPlist.strings */,
 				55E40D2417321222008F31EC /* main.m */,
-				55E40D2617321222008F31EC /* Gifzo-Prefix.pch */,
+				55E40D2617321222008F31EC /* Twizo-Prefix.pch */,
 				55E40D2717321222008F31EC /* Credits.rtf */,
 				5534651A1743FC9400DBF01C /* icon.icns */,
 				10F427F11953F0260015FA72 /* script */,
